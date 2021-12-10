@@ -84,11 +84,16 @@ void RepulsionSpring(double *OutputVelocity,
             continue;
         n += 1;
 
-        /*
 
-        ************* YOUR CODE HERE ***************
 
-        */
+        // ************* YOUR CODE HERE ***************
+        UnitVect(DifferenceVector, DifferenceVector);
+        MultiplicateWithScalar(OutputVelocity, OutputVelocity,  p_l * (DistanceFromNeighbour - R_0_l), Dim_l);
+        VectSum(OutputVelocity, OutputVelocity, OutputVelocity);
+//        OutputVelocity = p_l * (DistanceFormNeighbour - R_0_l) * UnitVect(DifferenceVector);
+
+
+
     }
 
     /* divide result by number of interacting units */
@@ -147,6 +152,10 @@ void AttractionSpring(double *OutputVelocity,
         n += 1;
 
         /* *********************** YOUR CODE HERE ************************* */
+
+        UnitVect(DifferenceVector, DifferenceVector);
+        MultiplicateWithScalar(OutputVelocity, OutputVelocity,  p_l * (  R_0_l -  DistanceFromNeighbour), Dim_l);
+        VectSum(OutputVelocity, OutputVelocity, OutputVelocity);
     }
 
     /* divide result by number of interacting units */

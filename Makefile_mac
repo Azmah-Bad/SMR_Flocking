@@ -1,3 +1,5 @@
+# Replace Makefile with this file on mac osx
+
 
 # For allowing png outputs during visualization, type this:
 # make name_of_algo pngout=true
@@ -26,7 +28,7 @@ else
   src/utilities/file_utils.c src/utilities/param_utils.c src/sensors.c src/robotmodel.c src/colors.c src/vizualizer/objects_2d.c \
   src/objects_menu.c src/utilities/arenas.c src/vizualizer/objects_3d.c src/stat.c src/dynspecviz.c src/utilities/output_utils.c \
   src/utilities/debug_utils.c src/utilities/stack.c src/utilities/data_struct.c
- GCC += $(DEFAULT_FLAGS) $(VIZUALIZER_FLAGS) $(ERROR_FLAGS) $(CANCEL_FLAGS) -o robotflocksim_main 
+ GCC += $(DEFAULT_FLAGS) $(VIZUALIZER_FLAGS) $(ERROR_FLAGS) $(CANCEL_FLAGS) -o robotflocksim_main
 endif
 
 # Setting up png output mode
