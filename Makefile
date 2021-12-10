@@ -7,10 +7,10 @@ DEBUG_MODE := $(strip $(debug))
 SERVER_MODE := $(strip $(server))
 
 
-DEFAULT_FLAGS := -lm
-VIZUALIZER_FLAGS := -lGL -lGLU -lglut
+DEFAULT_FLAGS := -lm -I/opt/X11/include
+VIZUALIZER_FLAGS := -lGL -lGLU -lglut -L/opt/X11/lib -lGL -lX11
 PNGOUTPUT_FLAGS := -lIL -lILU -lILUT
-ERROR_FLAGS := -Wall -Wextra
+ERROR_FLAGS := -Wall -Wextra -I/opt/X11/include
 CANCEL_FLAGS := -Wno-unused-variable -Wno-unused-parameter -Wno-unused-but-set-variable -Wno-switch -Wno-comment -Wno-unused-but-set-parameter -Wunused-function
 
 ##############
