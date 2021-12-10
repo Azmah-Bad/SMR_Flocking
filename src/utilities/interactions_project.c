@@ -88,9 +88,8 @@ void RepulsionSpring(double *OutputVelocity,
 
         // ************* YOUR CODE HERE ***************
         UnitVect(DifferenceVector, DifferenceVector);
-        MultiplicateWithScalar(OutputVelocity, OutputVelocity,  p_l * (DistanceFromNeighbour - R_0_l), Dim_l);
-        VectSum(OutputVelocity, OutputVelocity, OutputVelocity);
-//        OutputVelocity = p_l * (DistanceFormNeighbour - R_0_l) * UnitVect(DifferenceVector);
+        MultiplicateWithScalar(DifferenceVector, DifferenceVector,  - p_l * (DistanceFromNeighbour - R_0_l), Dim_l);
+        VectSum(OutputVelocity, OutputVelocity, DifferenceVector);
 
 
 
@@ -154,8 +153,8 @@ void AttractionSpring(double *OutputVelocity,
         /* *********************** YOUR CODE HERE ************************* */
 
         UnitVect(DifferenceVector, DifferenceVector);
-        MultiplicateWithScalar(OutputVelocity, OutputVelocity,  p_l * (  R_0_l -  DistanceFromNeighbour), Dim_l);
-        VectSum(OutputVelocity, OutputVelocity, OutputVelocity);
+        MultiplicateWithScalar(DifferenceVector, DifferenceVector,  - p_l * ( DistanceFromNeighbour - R_0_l), Dim_l);
+        VectSum(OutputVelocity, OutputVelocity, DifferenceVector);
     }
 
     /* divide result by number of interacting units */
@@ -222,8 +221,10 @@ void Alignment(double *OutputVelocity,
             /*
 
             ************* YOUR CODE HERE ***************
-
             */
+            VectPow(DifferenceVelocities, DifferenceVelocities, alpha, Dim_l);
+            MultiplicateWithScalar(DifferenceVelocities, DifferenceVelocities, h, Dim_l);
+            VectSum(OutputVelocity, OutputVelocity, DifferenceVelocities);
             
         }
 }
